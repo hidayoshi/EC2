@@ -31,6 +31,8 @@ gem 'simple_form'
 gem 'enumerize'
 gem 'carrierwave'
 gem "hashid-rails"
+gem 'stripe'
+
 
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -41,6 +43,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'faker'
+  gem 'dotenv-rails'
+
 end
 
 group :development do

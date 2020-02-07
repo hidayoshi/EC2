@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_074542) do
+ActiveRecord::Schema.define(version: 2020_02_07_125649) do
 
   create_table "basket_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "basket_id", null: false
@@ -38,6 +38,22 @@ ActiveRecord::Schema.define(version: 2020_02_07_074542) do
     t.string "image"
   end
 
+  create_table "purchase_record_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "purchase_record_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_purchase_record_products_on_product_id"
+    t.index ["purchase_record_id"], name: "index_purchase_record_products_on_purchase_record_id"
+  end
+
+  create_table "purchase_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_purchase_records_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,4 +73,7 @@ ActiveRecord::Schema.define(version: 2020_02_07_074542) do
   add_foreign_key "basket_products", "baskets"
   add_foreign_key "basket_products", "products"
   add_foreign_key "baskets", "users"
+  add_foreign_key "purchase_record_products", "products"
+  add_foreign_key "purchase_record_products", "purchase_records"
+  add_foreign_key "purchase_records", "users"
 end
