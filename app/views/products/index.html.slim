@@ -1,6 +1,15 @@
-- @products.each do |product|
-    .product
-        p
-            = product.name
-        p
-            = product.display_price
+= link_to "new", new_product_path
+
+.product
+    .row
+        - @products.each do |product|
+            .col-sm-12.col-md-6
+                .card
+                    .card-img-top
+                        - if product.image.present?
+                            = image_tag product.image_url
+                    .card-body
+                        .card-title
+                            = product.name
+                        p.card-text
+                            = product.display_price

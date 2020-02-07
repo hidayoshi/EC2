@@ -27,6 +27,9 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'devise'
 gem 'active_decorator'
+gem 'simple_form'
+gem 'enumerize'
+gem 'carrierwave'
 
 
 # Reduces boot times through caching; required in config/boot.rb
