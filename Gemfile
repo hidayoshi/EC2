@@ -30,6 +30,7 @@ gem 'active_decorator'
 gem 'simple_form'
 gem 'enumerize'
 gem 'carrierwave'
+gem "hashid-rails"
 
 
 # Reduces boot times through caching; required in config/boot.rb
