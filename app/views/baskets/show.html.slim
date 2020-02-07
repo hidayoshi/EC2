@@ -1,0 +1,11 @@
+.cantainer
+    h3.mb-30
+        かご
+    ul
+        - @products.each do |product|
+            li
+                = product.name
+                = link_to product_delete_in_baskets_path(product), method: :post,
+                                data: {confirm: '削除してもいいですか？'} do
+                    span
+                        消去

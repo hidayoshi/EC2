@@ -6,6 +6,6 @@ p
     = @product.description
 p
     = @product.display_price
-
-.btn.btn-primary
-    購入
+= link_to product_add_to_baskets_path(@product), method: :post do
+    .btn.btn-primary
+        購入
