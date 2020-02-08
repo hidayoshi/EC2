@@ -12,4 +12,17 @@ html
       = notice
     p.alert
       = alert
+    nav.navbar.navbar-expand-lg.bg-light
+      a.navbar-brand href=root_path
+        | lootravel
+      ul.navbar-nav
+        - if current_user.present?
+          li.nav-item
+            = link_to "Log Out", destroy_user_session_path, method: :delete
+        - elsif current_admin.present?
+          li.nav-item
+            = link_to "Log Out(Admin)", destroy_admin_session_path, method: :delete
+        - else
+          li.nav-item
+            = link_to "Log in", new_user_session_path
     = yield
