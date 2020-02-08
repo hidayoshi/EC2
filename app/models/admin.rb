@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -13,8 +15,8 @@ class Admin < ApplicationRecord
 
   def sales_this_month
     sold_products = products
-                            .joins(:purchase_record_products)
-                            .where({ purchase_record_products: {created_at: Time.current.all_month} })
+                    .joins(:purchase_record_products)
+                    .where(purchase_record_products: { created_at: Time.current.all_month })
     PriceCalculator.total(sold_products)
   end
 end
