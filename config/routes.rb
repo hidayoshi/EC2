@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root to: "dashboards#index"
     resources :products, only: %i(new create)
+    resource :sales_record, only: %(show)
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

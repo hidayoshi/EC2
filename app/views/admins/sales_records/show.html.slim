@@ -1,0 +1,18 @@
+.container
+    h2 Sales
+    table
+        thead
+            tr
+                th Product name
+                th price
+                th time
+        tbody
+            - @purchase_record_products.each do |purchase_record_product|
+                - product = purchase_record_product.product
+                tr
+                    td
+                        = product.name
+                    td
+                        = product.display_price
+                    td
+                        = purchase_record_product.created_at
